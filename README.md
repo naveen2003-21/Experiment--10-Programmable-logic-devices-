@@ -16,16 +16,52 @@ Figure -01 PROM
  
  
 ### Procedure
-/* write all the steps invloved */
+
+Step 1
+
+Open the quartus application and create a new project wizard.
+
+Step 2
+
+Use begin to initiate the programming logic gates.
+
+Step 3
+
+After the completion of program use endmodule to end the module.
+
+Step 4
+
+Use RTL viewer to yield the output.
 
 
 
 ### PROGRAM 
-/*
+```
 Program for PROM 
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: A NAVEEN KUMAR
+RegisterNumber:  212221240032
+
+module exp10(out, addr, CS);
+output[15:0] out;
+input[3:0] addr;
+input CS;
+reg [15:0] out;
+reg [15:0] ROM[15:0];
+always @(negedge CS)
+begin
+ROM[0]=16'h5601; ROM[1]=16'h3401;
+ROM[2]=16'h1801; ROM[3]=16'h0ac1;
+ROM[4]=16'h0521; ROM[5]=16'h0221;
+ROM[6]=16'h5601; ROM[7]=16'h5401;
+ROM[8]=16'h4801; ROM[9]=16'h3801;
+ROM[10]=16'h3001; ROM[11]=16'h2401;
+ROM[12]=16'h1c01; ROM[13]=16'h1601;
+ROM[14]=16'h5601; ROM[15]=16'h5401;
+out=ROM[addr];
+end
+endmodule
+
+```
 
 
 
@@ -35,7 +71,7 @@ RegisterNumber:
 ### RTL LOGIC  
 
 
-
+![](rom1.png)
 
 
 
@@ -43,7 +79,7 @@ RegisterNumber:
 
 ### TIMING DIGRAMS  
 
-
+![](ROM2.png)
 
 
 
@@ -54,3 +90,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Implementation of PROM using verilog and validation of its output has been completed.
